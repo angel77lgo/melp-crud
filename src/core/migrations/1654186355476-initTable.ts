@@ -7,12 +7,10 @@ export class initTable1654186355476 implements MigrationInterface {
 
   public async up(queryRunner: QueryRunner): Promise<void> {
 
-    await queryRunner.query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`);
-
     const restaurantTable = new Table({
       name: 'restaurant',
       columns: [
-        { name: 'id', type: 'uuid', isPrimary: true, generationStrategy: 'uuid', default: `uuid_generate_v4()` },
+        { name: 'id', type: 'varchar', isPrimary: true, generationStrategy: 'uuid' },
         { name: 'rating', type: 'int' },
         { name: 'name', type: 'varchar', length: '100' },
         { name: 'site', type: 'varchar', length: '100' },
@@ -40,7 +38,7 @@ export class initTable1654186355476 implements MigrationInterface {
       const nRestaurant = d.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
   
       if (!isEmpty(nRestaurant[0])){
-        const query = `INSERT INTO restaurant VALUES ('${nRestaurant[0]}', ${nRestaurant[1]}, '${nRestaurant[2].replace(/['"]+/g,'')}', '${nRestaurant[3]}', '${nRestaurant[4]}', '${nRestaurant[5]}', '${nRestaurant[6]}', '${nRestaurant[7]}', '${nRestaurant[8]}', ${nRestaurant[9]}, ${nRestaurant[10]});`;
+        const query = `INSERT INTO restaurant (id, rating, name, site, email, phone, street, city, state, lat, lng) VALUES ('${nRestaurant[0]}', ${nRestaurant[1]}, '${nRestaurant[2].replace(/['"]+/g,'')}', '${nRestaurant[3]}', '${nRestaurant[4]}', '${nRestaurant[5]}', '${nRestaurant[6]}', '${nRestaurant[7]}', '${nRestaurant[8]}', ${nRestaurant[9]}, ${nRestaurant[10]});`;
        
         await queryRunner.query(query)
       }

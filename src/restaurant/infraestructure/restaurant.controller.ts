@@ -4,6 +4,7 @@ import { CreateRestaurantCommand } from '../application/command/impl/create-rest
 import { DeleteRestaurantCommand } from '../application/command/impl/delete-restaurant.command';
 import { UpdateRestaurantCommand } from '../application/command/impl/update-restaurante.command';
 import { GetAllRestaurantQuery } from '../application/query/impl/get-all-restaurant.query';
+import { GetNearRestaurantsQuery } from '../application/query/impl/get-near-restaurants.query';
 import { GetOneRestaurantByIdQuery } from '../application/query/impl/get-one-restaurant-by-id.query';
 import { AddRestaurantDto } from '../domain/dto/add-restaurant.dto';
 
@@ -44,6 +45,12 @@ export class RestaurantController {
   @HttpCode(200)
   public async deleteRestaurant(@Param('restaurantId') restaurantId: string) {
     return await this.commandBus.execute(new DeleteRestaurantCommand(restaurantId));
+  }
+
+  @Get('statistics/near')
+  @HttpCode(200)
+  public async getNearRestaruants(@Query('latitude') latitude: number, @Query('longitude') longitude: number, @Query('radius') radius: number) {
+    return await this.queryBus.execute(new GetNearRestaurantsQuery(latitude, longitude, radius));
   }
 
 

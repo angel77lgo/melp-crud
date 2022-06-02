@@ -9,7 +9,7 @@ import { isEmail, isEmpty } from 'class-validator';
 import { HttpException, NotFoundException } from '@nestjs/common';
 import { AddRestaurantDto } from './dto/add-restaurant.dto';
 import { PartialType } from '@nestjs/swagger';
-import { validateRestaurant } from '../../core/utils/utils';
+import { standarDeviation, validateRestaurant } from '../../core/utils/utils';
 
 export class RestaurantService implements RestaurantInterface {
 
@@ -18,7 +18,7 @@ export class RestaurantService implements RestaurantInterface {
   ) { }
 
   public async getAllRestuarants(limit: number, page: number) {
-    const query = this.restaurantRepository.createQueryBuilder();
+    const query = this.restaurantRepository.createQueryBuilder().orderBy('created_at', 'ASC');
 
     const url = `${process.env.ROUTE}/restaurant`
 
@@ -65,6 +65,34 @@ export class RestaurantService implements RestaurantInterface {
     }
 
     return await this.restaurantRepository.softDelete(restaurantId)
+  }
+
+  public async getNearRestaurants(latitude: number, longitude: number, radius: number) {
+
+    const restaurants = await this.restaurantRepository.createQueryBuilder('restaurant')
+      .select(['*', `ST_Distance_Sphere(
+        point(${longitude}, ${latitude}),
+        point(lng, lat)
+      ) AS distance`]).having(`distance < ${radius}`).getRawMany()
+
+    let rating = 0;
+    let values = [];
+    restaurants.forEach((restaurant) => {
+      rating = rating + restaurant.rating
+      values.push(restaurant.rating)
+    })
+
+    console.log(restaurants);
+
+    const avg = Number((rating / restaurants.length).toFixed(2))
+
+    const std = await standarDeviation(values, avg)
+
+    return {
+      count: restaurants.length,
+      avg: avg,
+      std: std
+    };
   }
 
 

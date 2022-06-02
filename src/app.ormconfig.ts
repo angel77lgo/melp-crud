@@ -4,12 +4,12 @@ import { SnakeNamingStrategy } from "typeorm-naming-strategies";
 
 const config: ConnectionOptions = {
   name: 'default',
-  type: 'postgres',
-  host: process.env.POSTGRES_HOST,
-  port: Number(process.env.POSTGRES_PORT),
-  database: process.env.POSTGRES_DATABASE,
-  username: process.env.POSTGRES_USER,
-  password: process.env.POSTGRES_PASSWORD,
+  type: 'mysql',
+  host: process.env.DB_HOST,
+  port: Number(process.env.DB_PORT),
+  database: process.env.DB_DATABASE,
+  username: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
   entities: [],
   synchronize: false,
   namingStrategy: new SnakeNamingStrategy(),

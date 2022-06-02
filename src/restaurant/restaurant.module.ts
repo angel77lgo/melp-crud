@@ -11,11 +11,12 @@ import { CreateRestaurantHandler } from './application/command/handler/create-re
 import { UpdateRestaurantCommand } from './application/command/impl/update-restaurante.command';
 import { UpdateRestaurantHandler } from './application/command/handler/update-restaurant.handler';
 import { DeleteRestaurantHandler } from './application/command/handler/delete-restaurant.handler';
+import { GetNearRestaurantsHandler } from './application/query/handler/get-near-restaurant.handler';
 
 
 const commandHandlers = [CreateRestaurantHandler, UpdateRestaurantHandler, DeleteRestaurantHandler];
 
-const queryHandlers = [GetAllRestaurantHandler, GetOneRestaurantByIdHandler];
+const queryHandlers = [GetAllRestaurantHandler, GetOneRestaurantByIdHandler, GetNearRestaurantsHandler];
 @Module({
   imports:[
     TypeOrmModule.forFeature([Restaurant])
