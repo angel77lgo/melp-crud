@@ -11,9 +11,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}/restaurant?limit=2&page=1",
+					"raw": "{{prod}}/restaurant?limit=2&page=1",
 					"host": [
-						"{{host}}"
+						"{{prod}}"
 					],
 					"path": [
 						"restaurant"
