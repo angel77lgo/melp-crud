@@ -20,3 +20,5 @@ const config: ConnectionOptions = {
     migrationsDir: 'src/core/migrations'
   }
 }
+
+export = config;

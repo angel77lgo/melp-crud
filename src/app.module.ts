@@ -4,6 +4,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import 'dotenv/config';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
+import { CoreModule } from './core/core.module';
+import { RestaurantModule } from './restaurant/restaurant.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -17,7 +19,7 @@ import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
     namingStrategy: new SnakeNamingStrategy(),
     autoLoadEntities: true,
     logging: true
-  })],
+  }), CoreModule, RestaurantModule],
   controllers: [AppController],
   providers: [AppService],
 })
