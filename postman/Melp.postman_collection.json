@@ -38,9 +38,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}/restaurant/d87ac5fe-a812-492a-a97e-88a571d67d17",
+					"raw": "{{prod}}/restaurant/d87ac5fe-a812-492a-a97e-88a571d67d17",
 					"host": [
-						"{{host}}"
+						"{{prod}}"
 					],
 					"path": [
 						"restaurant",
@@ -65,9 +65,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}/restaurant",
+					"raw": "{{prod}}/restaurant",
 					"host": [
-						"{{host}}"
+						"{{prod}}"
 					],
 					"path": [
 						"restaurant"
@@ -91,9 +91,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}/restaurant/d87ac5fe-a812-492a-a97e-88a571d67d17",
+					"raw": "{{prod}}/restaurant/d87ac5fe-a812-492a-a97e-88a571d67d17",
 					"host": [
-						"{{host}}"
+						"{{prod}}"
 					],
 					"path": [
 						"restaurant",
@@ -109,9 +109,9 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{host}}/restaurant/b27315c8-c57d-49b4-8478-d20f2be9d3c7",
+					"raw": "{{prod}}/restaurant/b27315c8-c57d-49b4-8478-d20f2be9d3c7",
 					"host": [
-						"{{host}}"
+						"{{prod}}"
 					],
 					"path": [
 						"restaurant",
@@ -127,9 +127,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}/restaurant/statistics/near?latitude=20.099661&longitude=-98.766649&radius=5000",
+					"raw": "{{prod}}/restaurant/statistics/near?latitude=20.099661&longitude=-98.766649&radius=5000",
 					"host": [
-						"{{host}}"
+						"{{prod}}"
 					],
 					"path": [
 						"restaurant",
