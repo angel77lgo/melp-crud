@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "5a170ec4-29d3-45cb-a42d-958b2e5f261c",
+		"name": "Melp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all restaurants",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/restaurant?limit=2&page=1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"restaurant"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get one restaurant",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/restaurant/d87ac5fe-a812-492a-a97e-88a571d67d17",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"restaurant",
+						"d87ac5fe-a812-492a-a97e-88a571d67d17"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add restaurant",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rating\": 1,\n    \"name\": \"Amor Mio\",\n    \"site\": \"http://amor.com\",\n    \"email\": \"china.s@gmail.com\",\n    \"phone\": \"800 891 1233\",\n    \"street\": \"Ferrocaril Central\",\n    \"city\": \"Pachuca de Soto\",\n    \"state\": \"Hidalgo\",\n    \"lat\":20.096265,\n    \"lng\": -98.776497\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/restaurant",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"restaurant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateRestaurant",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rating\": 0,\n    \"name\": \"La Fe: Comida China 2\",\n    \"site\": \"http://comidachina.com\",\n    \"email\": \"china.s@gmail.com\",\n    \"phone\": \"800 891 1233\",\n    \"street\": \"Ferrocaril Central\",\n    \"city\": \"Pachuca de Soto\",\n    \"state\": \"Hidalgo\",\n    \"lat\":20.0984962,\n    \"lng\": -98.771545\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/restaurant/d87ac5fe-a812-492a-a97e-88a571d67d17",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"restaurant",
+						"d87ac5fe-a812-492a-a97e-88a571d67d17"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete restaurant",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/restaurant/b27315c8-c57d-49b4-8478-d20f2be9d3c7",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"restaurant",
+						"b27315c8-c57d-49b4-8478-d20f2be9d3c7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getNears",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/restaurant/statistics/near?latitude=20.099661&longitude=-98.766649&radius=5000",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"restaurant",
+						"statistics",
+						"near"
+					],
+					"query": [
+						{
+							"key": "latitude",
+							"value": "20.099661"
+						},
+						{
+							"key": "longitude",
+							"value": "-98.766649"
+						},
+						{
+							"key": "radius",
+							"value": "5000"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
